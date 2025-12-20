@@ -20,6 +20,13 @@ body {
     padding: 40px 20px;
 }
 
+h1 {
+    text-align: center;
+    align-items: center;
+    align-items: center;
+
+}
+
 form {
     width: 100%;
     max-width: 1100px;
@@ -72,6 +79,7 @@ fieldset {
 
 .imageOption img,
 .imageOption video {
+    border-radius: 5px 5px 0 0;
     width: 100%;
     height: 250px;
     /* Фиксированная высота для ровности */
@@ -86,6 +94,7 @@ fieldset {
     gap: 10px;
     background-color: var(--bg-item);
     flex-grow: 1;
+    border-radius: 0 0 5px 5px;
 }
 
 /* --- ЦИТАТЫ (друг под другом) --- */
@@ -98,13 +107,14 @@ fieldset {
 .quoteOption,
 .dialogueOption {
     background-color: var(--bg-card);
+    border-left: 4px solid #4f545c;
     padding: 12px 16px;
     border-radius: 5px;
     display: flex;
     align-items: center;
     gap: 12px;
     cursor: pointer;
-    border: 1px solid transparent;
+
 }
 
 .quoteOption:hover {
@@ -176,7 +186,6 @@ label {
 .quoteOption {
     cursor: pointer;
     position: relative;
-    border: 2px solid transparent;
     /* Заранее резервируем место под рамку */
     transition: all 0.2s ease;
 }
@@ -252,16 +261,51 @@ label {
 
 
 /* Стиль текста цитаты (как цитата в Discord) */
-.quoteOption {
-    border-left: 4px solid #4f545c;
-    /* Серая полоса слева */
-    background-color: var(--bg-item);
-    padding: 10px 15px;
-    margin-bottom: 5px;
-}
 
 .quoteOption:has(input:checked) {
     border-left-color: var(--blurple) !important;
+}
+
+/* Анимация контура при наведении */
+.imageOption,
+.quoteOption,
+.dialogueOption {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.imageOption:hover,
+.quoteOption:hover,
+.dialogueOption:hover {
+    border-color: #5865f2;
+    /* Цвет Discord */
+    background: rgba(88, 101, 242, 0.05);
+}
+
+/* Стиль для ВЫБРАННОГО элемента */
+.selected-item {
+    border: 2px solid #5865f2 !important;
+    background-color: rgba(88, 101, 242, 0.1);
+    border-radius: 8px;
+}
+
+/* Чтобы видео не перекрывало клики */
+video {
+    pointer-events: auto;
+    /* Позволяет нажать паузу/плей */
+}
+
+.selected-item {
+    border: 2px solid #5865f2 !important;
+    background-color: rgba(88, 101, 242, 0.1);
+    border-radius: 8px;
+}
+
+fieldset {
+    border: transparent;
 }
 
 /* Адаптация под мобилки */
