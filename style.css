@@ -1,0 +1,118 @@
+/* Основной фон и центрирование */
+body,
+.teQAzf {
+    display: flex;
+    justify-content: center;
+    background-color: #36393f;
+    color: #dcddde;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* Растягиваем основной контейнер формы */
+#mG61Hd {
+    width: 100%;
+    max-width: 1200px;
+    /* Увеличено для лучшего отображения картинок */
+}
+
+/* Каждый вопрос — отдельный блок во всю ширину */
+.Qr7Oae {
+    background-color: #2b2d31 !important;
+    border-radius: 8px;
+    padding: 24px !important;
+    margin-bottom: 20px;
+    border: 1px solid #1e1f22;
+    display: block !important;
+    /* Гарантирует, что вопросы идут друг под другом */
+}
+
+/* Заголовок вопроса */
+.M7eMe {
+    color: #ffffff !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Сетка для вариантов ответов внутри вопроса */
+.SG0AAe.Bh5yR {
+    display: grid !important;
+    /* Создаем 3 колонки, на маленьких экранах перестраиваем в 1-2 */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
+    gap: 16px !important;
+}
+
+/* Контейнер одного варианта (с картинкой и текстом) */
+.nWQGrd.zwllIb.UHZXDe {
+    background-color: #232428 !important;
+    border-radius: 8px;
+    padding: 12px !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    /* Картинка сверху, текст снизу */
+    align-items: center;
+    transition: transform 0.1s, background-color 0.1s;
+    border: 2px solid transparent;
+}
+
+.nWQGrd.zwllIb.UHZXDe:hover {
+    background-color: #2e3035 !important;
+    border-color: #5865f2;
+    transform: translateY(-2px);
+}
+
+/* Контейнер картинки */
+.LAANW.Py85ab {
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 10px;
+}
+
+/* Сама картинка */
+.QU5LQc {
+    width: 100% !important;
+    height: 180px !important;
+    /* Фиксированная высота для ровности сетки */
+    object-fit: cover !important;
+    /* Обрезает края, чтобы все были одинаковые */
+    border-radius: 4px;
+}
+
+/* Текст варианта под картинкой */
+.YEVVod {
+    text-align: center;
+    padding: 5px;
+}
+
+.aDTYNe {
+    color: #dbdee1 !important;
+    font-weight: 500 !important;
+}
+
+/* Радио-кнопка (кружок) — смещаем или стилизуем */
+.vd3tt {
+    margin-bottom: 8px;
+}
+
+/* Кнопка "Очистить выбор" (Clear selection) */
+.uArJ5e.kCyAyd {
+    color: #b5bac1 !important;
+    margin-top: 15px;
+}
+
+/* Кнопка Submit */
+.uArJ5e.Y5sE8d {
+    background-color: #5865f2 !important;
+    border-radius: 3px !important;
+    padding: 10px 24px !important;
+}
+
+/* Скрытие мусора Google */
+.JH79cc,
+.zAVwcb,
+.v1CNvb,
+.I3zNcc {
+    display: none !important;
+}
