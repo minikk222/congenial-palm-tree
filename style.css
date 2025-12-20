@@ -95,7 +95,8 @@ fieldset {
     gap: 8px;
 }
 
-.quoteOption {
+.quoteOption,
+.dialogueOption {
     background-color: var(--bg-card);
     padding: 12px 16px;
     border-radius: 5px;
@@ -108,6 +109,16 @@ fieldset {
 
 .quoteOption:hover {
     background-color: #35373c;
+}
+
+.dialogueOption:hover {
+    background-color: #35373c;
+}
+
+#dialogue {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 /* --- КНОПКА SUBMIT --- */
@@ -141,6 +152,116 @@ input[type="radio"] {
 label {
     cursor: pointer;
     user-select: none;
+}
+
+.imageOption img:hover,
+.imageOption video:hover {
+    filter: brightness(1.1);
+    /* Слегка подсвечивает медиа при наведении */
+}
+
+/* Скрываем стандартный инпут, но оставляем его доступным для системы */
+.imageOption input[type="radio"],
+.dialogueOption input[type="radio"],
+.quoteOption input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Стиль карточки по умолчанию */
+.imageOption,
+.dialogueOption,
+.quoteOption {
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    /* Заранее резервируем место под рамку */
+    transition: all 0.2s ease;
+}
+
+/* Эффект ховера */
+.imageOption:hover,
+.dialogueOption:hover,
+.quoteOption:hover {
+    background-color: #35373c !important;
+    border-color: #4f545c;
+}
+
+/* Тот самый эффект "застывшего ховера" при выборе */
+/* Если внутри .imageOption есть ЧЕКНУТЫЙ инпут — меняем стиль родителя */
+.imageOption:has(input:checked),
+.dialogueOption:has(input:checked),
+.quoteOption:has(input:checked) {
+    background-color: rgba(88, 101, 242, 0.1) !important;
+    /* Легкий оттенок Blurple */
+    border-color: #5865f2 !important;
+    /* Яркая рамка Discord */
+    transform: scale(1.02);
+    /* Слегка увеличиваем выбранный блок */
+}
+
+/* Добавим галочку или индикатор, если нужно, чтобы визуально подтвердить выбор */
+.imageOption:has(input:checked)::after {
+    content: "✓";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #5865f2;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* --- СТИЛЬ ДИАЛОГА (Discord Message Style) --- */
+.dialogue fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*
+#dialogue {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    padding: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 14px;
+    transition: all 0.2s ease;
+}
+*/
+#dialogue p {
+    margin: 0;
+    white-space: pre-line;
+    /* Чтобы /n работал как перенос строки */
+    line-height: 1.4;
+    color: var(--text-main);
+}
+
+
+/* Стиль текста цитаты (как цитата в Discord) */
+.quoteOption {
+    border-left: 4px solid #4f545c;
+    /* Серая полоса слева */
+    background-color: var(--bg-item);
+    padding: 10px 15px;
+    margin-bottom: 5px;
+}
+
+.quoteOption:has(input:checked) {
+    border-left-color: var(--blurple) !important;
 }
 
 /* Адаптация под мобилки */
